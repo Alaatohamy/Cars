@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { ReactComponent as CarIcon } from "../assets/icons/car.svg"
 import { ReactComponent as  LogOut } from "../assets/icons/logout.svg"
+import SearchFelid from "./search";
 
 import {
   Bars3BottomLeftIcon,
@@ -10,7 +11,6 @@ import {
   XMarkIcon,
   Cog8ToothIcon
 } from '@heroicons/react/24/outline'
-import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: Squares2X2Icon, current: true },
@@ -83,12 +83,13 @@ export default function Layout() {
                   <div className="flex flex-shrink-0 items-center px-4">
                     <img
                       className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                      alt="Your Company"
+                      src="logo.svg"
+                      alt="Motiv."
                     />
+                    <p className="font-bold ml-3">Motiv.</p>
                   </div>
-                  <div className="mt-5 h-0 flex-1 overflow-y-auto">
-                    <nav className="space-y-1 px-2">
+                  <div className="mt-5 h-0 flex flex-col flex-1 overflow-y-auto">
+                    <nav className="flex-1 space-y-1 px-2 pb-2">
                       {navigation.map((item) => (
                         <a
                           key={item.name}
@@ -111,6 +112,29 @@ export default function Layout() {
                         </a>
                       ))}
                     </nav>
+                    <div className="flex flex-shrink-0 p-4">
+                      <nav className="flex-1 space-y-1 px-2 pb-4">
+                        {bottomNavigation.map((item) => (
+                          <a
+                            key={item.name}
+                            href={item.href}
+                            className={classNames(
+                              item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                              'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                            )}
+                          >
+                            <item.icon
+                              className={classNames(
+                                item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
+                                'mr-3 flex-shrink-0 h-6 w-6'
+                              )}
+                              aria-hidden="true"
+                            />
+                            {item.name}
+                          </a>
+                        ))}
+                      </nav>
+                    </div>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -193,23 +217,7 @@ export default function Layout() {
             </button>
             <div className="flex flex-1 justify-between px-4">
               <div className="flex flex-1">
-                <form className="flex w-full md:ml-0" action="#" method="GET">
-                  <label htmlFor="search-field" className="sr-only">
-                    Search
-                  </label>
-                  <div className="relative w-full text-gray-400 focus-within:text-gray-600">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
-                      <MagnifyingGlassIcon className="h-5 w-5" aria-hidden="true" />
-                    </div>
-                    <input
-                      id="search-field"
-                      className="block h-full w-full border-transparent py-2 pl-8 pr-3 text-gray-900 placeholder-gray-500 focus:border-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-0 sm:text-sm"
-                      placeholder="Search"
-                      type="search"
-                      name="search"
-                    />
-                  </div>
-                </form>
+               <SearchFelid />
               </div>
               <div className="ml-4 flex items-center md:ml-6">
                 <button
