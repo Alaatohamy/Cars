@@ -13,7 +13,7 @@ const RecommendedCars = Array(3).fill({
   background: "mintYellow"
 });
 
-export default function CarList() {
+const CarList = () => {
   return (
     <ul className="grid grid-cols-2 gap-x-4 gap-y-8 mt-11 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
       {RecommendedCars.map(({id, percentage, img, name, kilo, price, background}) => (
@@ -40,3 +40,5 @@ export default function CarList() {
     </ul>
   )
 }
+
+export default CarList;

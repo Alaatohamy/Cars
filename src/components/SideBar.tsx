@@ -30,7 +30,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export function MobileSideBar({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, setSidebarOpen: any}) {
+export const MobileSideBar = ({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, setSidebarOpen: any}) => {
   return (
     <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog as="div" className="relative z-40 md:hidden" onClose={setSidebarOpen}>
@@ -143,7 +143,7 @@ export function MobileSideBar({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, 
         </Transition.Root>
 )}
 
-export function StaticSideBar({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, setSidebarOpen: any}) {
+export const StaticSideBar = ({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, setSidebarOpen: any}) => {
   return (
     <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
       {/* Sidebar component, swap this element with another sidebar if you like */}
@@ -207,7 +207,7 @@ export function StaticSideBar({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, 
   )
 }
 
-export function ProfileDropDown({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, setSidebarOpen: any}) {
+export const ProfileDropDown = ({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, setSidebarOpen: any}) => {
   return (
     <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
             <button

@@ -34,7 +34,7 @@ const ProgressCircle = ({textColor, percentage, cardColor}: {textColor: string, 
 )};
 
 
-export default function Metrics() {
+const Metrics = () => {
   return (
     <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {people.map((person) => (
@@ -52,3 +52,5 @@ export default function Metrics() {
     </ul>
   )
 }
+
+export default Metrics;

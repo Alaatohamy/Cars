@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Metrics, MobileSideBar, StaticSideBar, ProfileDropDown, CarList } from "./components";
 
-export default function Layout() {
+const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
@@ -27,3 +27,5 @@ export default function Layout() {
       </div>
   )
 }
+
+export default Layout;

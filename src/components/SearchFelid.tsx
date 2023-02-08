@@ -2,7 +2,7 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 
 
-function Search() {
+const Search = () => {
   return (
     <form className="flex w-full lg:w-2/5 md:ml-0" action="#" method="GET">
     <label htmlFor="search-field" className="sr-only">
