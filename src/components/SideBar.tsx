@@ -1,8 +1,8 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { ReactComponent as CarIcon } from "../assets/icons/car.svg"
 import { ReactComponent as  LogOut } from "../assets/icons/logout.svg"
-import SearchFelid from "./search";
+import { SearchFelid } from '.'
 
 import {
   Bars3BottomLeftIcon,
@@ -30,12 +30,9 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Layout() {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-
+export function MobileSideBar({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, setSidebarOpen: any}) {
   return (
-      <div>
-        <Transition.Root show={sidebarOpen} as={Fragment}>
+    <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog as="div" className="relative z-40 md:hidden" onClose={setSidebarOpen}>
             <Transition.Child
               as={Fragment}
@@ -144,69 +141,75 @@ export default function Layout() {
             </div>
           </Dialog>
         </Transition.Root>
+)}
 
-        {/* Static sidebar for desktop */}
-        <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
-          {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex flex-grow flex-col overflow-y-auto bg-white pt-5">
-            <div className="flex flex-shrink-0 items-center px-4">
-              <img
-                className="h-8 w-auto"
-                src="logo.svg"
-                alt="Motiv."
-              />
-              <p className="font-bold ml-3">Motiv.</p>
-            </div>
-            <div className="mt-5 flex flex-grow flex-col">
-              <nav className="flex-1 space-y-1 px-2 pb-4">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
+export function StaticSideBar({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, setSidebarOpen: any}) {
+  return (
+    <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
+      {/* Sidebar component, swap this element with another sidebar if you like */}
+      <div className="flex flex-grow flex-col overflow-y-auto bg-white pt-5">
+        <div className="flex flex-shrink-0 items-center px-4">
+          <img
+            className="h-8 w-auto"
+            src="logo.svg"
+            alt="Motiv."
+          />
+          <p className="font-bold ml-3">Motiv.</p>
+        </div>
+        <div className="mt-5 flex flex-grow flex-col">
+          <nav className="flex-1 space-y-1 px-2 pb-4">
+            {navigation.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className={classNames(
+                  item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                  'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                )}
+              >
+                <item.icon
+                  className={classNames(
+                    item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
+                    'mr-3 flex-shrink-0 h-6 w-6'
+                  )}
+                  aria-hidden="true"
+                />
+                {item.name}
+              </a>
+            ))}
+          </nav>
+          <div className="flex flex-shrink-0 p-4">
+            <nav className="flex-1 space-y-1 px-2 pb-4">
+              {bottomNavigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={classNames(
+                    item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                    'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                  )}
+                >
+                  <item.icon
                     className={classNames(
-                      item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                      'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                      item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
+                      'mr-3 flex-shrink-0 h-6 w-6'
                     )}
-                  >
-                    <item.icon
-                      className={classNames(
-                        item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
-                        'mr-3 flex-shrink-0 h-6 w-6'
-                      )}
-                      aria-hidden="true"
-                    />
-                    {item.name}
-                  </a>
-                ))}
-              </nav>
-              <div className="flex flex-shrink-0 p-4">
-                <nav className="flex-1 space-y-1 px-2 pb-4">
-                  {bottomNavigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={classNames(
-                        item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                        'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
-                      )}
-                    >
-                      <item.icon
-                        className={classNames(
-                          item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
-                          'mr-3 flex-shrink-0 h-6 w-6'
-                        )}
-                        aria-hidden="true"
-                      />
-                      {item.name}
-                    </a>
-                  ))}
-                </nav>
-              </div>
-            </div>
+                    aria-hidden="true"
+                  />
+                  {item.name}
+                </a>
+              ))}
+            </nav>
           </div>
         </div>
-        <div className="flex flex-1 flex-col md:pl-64">
-          <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
+      </div>
+    </div>
+  )
+}
+
+export function ProfileDropDown({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, setSidebarOpen: any}) {
+  return (
+    <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
             <button
               type="button"
               className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
@@ -271,22 +274,5 @@ export default function Layout() {
               </div>
             </div>
           </div>
-
-          <main className="flex-1">
-            <div className="py-6">
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-                <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
-              </div>
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-                {/*  content */}
-                <div className="py-4">
-                  <div className="h-96 rounded-lg border-4 border-dashed border-gray-200" />
-                </div>
-                {/* /End content */}
-              </div>
-            </div>
-          </main>
-        </div>
-      </div>
   )
 }
