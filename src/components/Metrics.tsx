@@ -12,7 +12,7 @@ const people:
   icon: BoltIcon,
   name: 'Energy',
   percentage: "45",
-  cardColor: 'purple-500',
+  cardColor: 'bg-purple-500',
   textColor: "white",
 })
 
@@ -27,7 +27,7 @@ const ProgressCircle = ({textColor, percentage, cardColor}: {textColor: string, 
   className={`relative rounded-full h-28 w-28 bg-opacity-10 bg-${textColor} mt-8 mx-auto`}
   >
     <span className={`absolute left-0 rounded-full h-28 w-28 bg-${textColor}`} style={{clipPath: `inset(0px ${cssPercentage}px 25px 0px round 10px)`}}></span>
-    <span className={`absolute flex inset-0 m-auto z-10 rounded-full bg-${cardColor}`} style={{width: "91px", height: "90px", clipPath: `circle(50%)`}}>
+    <span className={`absolute flex inset-0 m-auto z-10 rounded-full ${cardColor}`} style={{width: "91px", height: "90px", clipPath: `circle(50%)`}}>
       <p className='m-auto'>{percentage}%</p>
     </span>
   </div>
@@ -38,9 +38,9 @@ export default function Metrics() {
   return (
     <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {people.map((person) => (
-                <li
+        <li
           key={person.id}
-          className={`col-span-1 flex flex-col rounded-lg bg-${person.cardColor} text-${person.textColor} text-center shadow`}
+          className={`col-span-1 flex flex-col rounded-lg ${person.cardColor} text-${person.textColor} text-center shadow`}
         >
           <div className="flex flex-1 flex-col px-14 py-6 text-2xl font-bold">
             <BoltIcon className={`mx-auto h-10 w-10 px-2 py-3 flex-shrink-0 rounded-full bg-opacity-10 bg-${person.textColor}`} />

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Metrics, MobileSideBar, StaticSideBar, ProfileDropDown } from "./components";
+import { Metrics, MobileSideBar, StaticSideBar, ProfileDropDown, CarList } from "./components";
 
 export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -15,8 +15,9 @@ export default function Layout() {
             <div className="py-6">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
                 {/*  content */}
-                <div className="py-4">
+                <div className="py-4 flex flex-col">
                   <Metrics />
+                  <CarList />
                 </div>
                 {/* /End content */}
               </div>
