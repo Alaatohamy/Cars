@@ -36,7 +36,7 @@ const RecommendedCars = [{
 
 const CarList = () => {
   return (
-    <ul className="grid grid-cols-2 gap-x-4 gap-y-8 mt-11 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
+    <ul className="grid grid-cols-1 csm:grid-cols-2 md:grid-cols-3 gap-y-8 mt-11 gap-x-6 xl:gap-x-8">
       {RecommendedCars.map(({id, percentage, img, name, kilo, price, background}) => (
         <li key={id} className={`flex flex-col items-start gap-3 rounded-lg py-4 px-4 lg:px-6 ${background}`} >
           <div>
@@ -47,7 +47,7 @@ const CarList = () => {
           <div className="w-full">
             <p className="font-bold text-lg lg:text-xl text-start">{name}</p>
             <div className='flex flex-col items-start justify-between lg:flex-row text-gray-500 font-medium mt-2'>
-              <div className="flex flex-row justify-between items-center w-full lg:w-2/5">
+              <div className="flex flex-row gap-3 items-center w-full">
                 <TowArrow className="w-5 h-5" />
                 <p>{kilo}K</p>
                 <Gear className="w-5 h-5" />

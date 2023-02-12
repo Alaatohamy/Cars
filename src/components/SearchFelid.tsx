@@ -14,7 +14,7 @@ const Search = () => {
       </div>
       <input
         id="search-field"
-        className="block bg-gray-100 w-full h-full rounded-lg border-transparent py-2 pl-14 text-yellow placeholder-gray-500 focus:border-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-0 sm:text-sm"
+        className="block bg-gray-100 w-full h-full rounded-lg border-transparent py-2 pl-14 text-customYellow placeholder-gray-500 focus:border-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-0 sm:text-sm"
         placeholder="Search or Type"
         type="search"
         name="search"

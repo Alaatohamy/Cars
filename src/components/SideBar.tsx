@@ -33,7 +33,7 @@ function classNames(...classes: string[]) {
 export const MobileSideBar = ({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, setSidebarOpen: any}) => {
   return (
     <Transition.Root show={sidebarOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-40 md:hidden" onClose={setSidebarOpen}>
+          <Dialog as="div" className="relative z-40 lg:hidden" onClose={setSidebarOpen}>
             <Transition.Child
               as={Fragment}
               enter="transition-opacity ease-linear duration-300"
@@ -145,7 +145,7 @@ export const MobileSideBar = ({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, 
 
 export const StaticSideBar = ({sidebarOpen, setSidebarOpen}: {sidebarOpen: any, setSidebarOpen: any}) => {
   return (
-    <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
+    <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
       {/* Sidebar component, swap this element with another sidebar if you like */}
       <div className="flex flex-grow flex-col overflow-y-auto bg-white pt-5">
         <div className="flex flex-shrink-0 items-center px-4">
@@ -212,7 +212,7 @@ export const ProfileDropDown = ({sidebarOpen, setSidebarOpen}: {sidebarOpen: any
     <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
             <button
               type="button"
-              className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
+              className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 lg:hidden"
               onClick={() => setSidebarOpen(true)}
             >
               <span className="sr-only">Open sidebar</span>
@@ -222,7 +222,7 @@ export const ProfileDropDown = ({sidebarOpen, setSidebarOpen}: {sidebarOpen: any
               <div className="flex flex-1">
                <SearchFelid />
               </div>
-              <div className="ml-4 flex items-center md:ml-6">
+              <div className="ml-4 flex items-center lg:ml-6">
                 <button
                   type="button"
                   className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

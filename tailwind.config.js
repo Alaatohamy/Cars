@@ -5,9 +5,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        csm: "450px",
+      },
       colors: {
-        "yellow": "#EF9011",
-        "mintYellow": "#E1DFA4"
+        "customYellow": "#EF9011",
+        "mintYellow": "#E1DFA4",
+        "darkBlue": "#0F2837"
+      },
+      fontSize: {
+        custom4Xl: "40px"
       }
     },
   },
