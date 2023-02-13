@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { Link, useLocation, Location } from "react-router-dom";
 import { Dialog, Transition } from '@headlessui/react'
 import { ReactComponent as CarIcon } from "../assets/icons/car.svg"

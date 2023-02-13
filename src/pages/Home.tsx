@@ -1,11 +1,11 @@
-import { Metrics, CarList, YourInfo } from "../components";
+import { Metrics, HomeCarList, YourInfo } from "../components";
 
 
 const HomePage = () => (
   <>
      <Metrics />
       <YourInfo />
-      <CarList />
+      <HomeCarList />
   </>
 )
 
