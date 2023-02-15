@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Route, Routes } from "react-router-dom";
-import { SideBar, ProfileDropDown } from "./components";
+import { SideBar, Header } from "./components";
 import { HomePage, Booking } from "./pages";
 
 const Layout = () => {
@@ -10,7 +10,7 @@ const Layout = () => {
       <div>
         <SideBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <div className="flex flex-1 flex-col lg:pl-64">
-          <ProfileDropDown sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+          <Header setSidebarOpen={setSidebarOpen} />
           <main className="flex-1">
             <div className="py-6">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

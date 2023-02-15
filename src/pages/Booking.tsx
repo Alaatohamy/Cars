@@ -1,5 +1,4 @@
 import { Squares2X2Icon, AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
-import {RecommendedCars } from "../components/BookCarItem";
 import PorscheRed from "../assets/imgs/porsche-red.png";
 
 import { CarItem } from "../components";
@@ -19,6 +18,16 @@ const actionsList = [{
   icon: AdjustmentsHorizontalIcon
 }
 ]
+
+const carsData = Array(7).fill({
+  id: "3",
+  percentage: 74,
+  img: PorscheRed,
+  name: "Porsche 911 Carrera",
+  kilo: 130,
+  price: 28,
+  background: "bg-white"
+})
 
 const Booking = () => {
   return (
@@ -44,15 +53,7 @@ const Booking = () => {
         </ul>
       </div>
       <ul className="grid grid-cols-1 csm:grid-cols-2 md:grid-cols-3 gap-y-8 mt-9 gap-x-6 xl:gap-x-8">
-        {Array(7).fill({
-          id: "3",
-          percentage: 74,
-          img: PorscheRed,
-          name: "Porsche 911 Carrera",
-          kilo: 130,
-          price: 28,
-          background: "bg-white"
-        }).map(({id, percentage, img, name, kilo, price, background}) => (
+        {carsData.map(({id, percentage, img, name, kilo, price, background}) => (
           <CarItem
             id={id}
             percentage={percentage}
