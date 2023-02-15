@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter >
-      <div className="App">
+      <div className="App mx-auto max-w-screen-2xl">
         <Layout />
       </div>
     </BrowserRouter>
